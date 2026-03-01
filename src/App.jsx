@@ -264,15 +264,6 @@ export default function App() {
         />
       </div>
 
-      {/* Result cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-        <Card label={t.marginalRate} value={formatPct(comp.total * 100, t.locale)} highlight info={t.marginalRateInfo} />
-        <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100, t.locale)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
-        <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100, t.locale)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
-        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100, t.locale)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
-        <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100, t.locale)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
-      </div>
-
       {/* Net per extra euro */}
       <div className={`bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6 transition-all duration-300 ${hasInteracted ? "" : "opacity-40"}`}>
         {!hasInteracted ? (
@@ -286,6 +277,15 @@ export default function App() {
             )}
           </p>
         )}
+      </div>
+
+      {/* Result cards */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+        <Card label={t.marginalRate} value={formatPct(comp.total * 100, t.locale)} highlight info={t.marginalRateInfo} />
+        <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100, t.locale)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
+        <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100, t.locale)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
+        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100, t.locale)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
+        <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100, t.locale)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
       </div>
 
       {/* Chart */}
