@@ -200,7 +200,7 @@ function CustomTooltip({ active, payload, label }) {
 export default function App() {
   const { t } = useLanguage();
   const { dark } = useTheme();
-  const [income, setIncome] = useState(40000);
+  const [income, setIncome] = useState(50000);
   const [hasInteracted, setHasInteracted] = useState(false);
   const chartData = useMemo(generateChartData, []);
   const comp = getMarginalComponents(income);
