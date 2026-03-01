@@ -237,6 +237,14 @@ export default function App() {
         </div>
       </div>
 
+      {/* Intro */}
+      <div className="rounded-xl border border-blue-100 dark:border-blue-900/50 bg-blue-50/50 dark:bg-blue-950/20 px-5 py-4 mb-6">
+        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <strong className="text-gray-900 dark:text-gray-100">{t.introStrong}</strong>{" "}
+          {t.introText}
+        </p>
+      </div>
+
       {/* Income input */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{t.grossIncome}</label>
@@ -282,12 +290,19 @@ export default function App() {
       )}
 
       {/* Result cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
         <Card label={t.marginalRate} value={formatPct(comp.total * 100, t.locale)} highlight info={t.marginalRateInfo} />
         <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100, t.locale)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
         <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100, t.locale)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
-        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100, t.locale)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
+        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100, t.locale)} color="text-purple-600 dark:text-purple-400" info={t.akPhaseoutInfo} />
         <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100, t.locale)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
+        <Card
+          label={t.deltaLabel}
+          value={`${(comp.total - comp.bracketRate) >= 0 ? "+" : ""}${formatPct((comp.total - comp.bracketRate) * 100, t.locale)}`}
+          color={(comp.total - comp.bracketRate) >= 0 ? "text-rose-600 dark:text-rose-400" : "text-green-600 dark:text-green-400"}
+          info={t.deltaInfo}
+          accent
+        />
       </div>
 
       {/* Chart */}
@@ -488,7 +503,7 @@ export default function App() {
   );
 }
 
-function Card({ label, value, highlight, color, info }) {
+function Card({ label, value, highlight, accent, color, info }) {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -502,8 +517,14 @@ function Card({ label, value, highlight, color, info }) {
     return () => { document.removeEventListener("mousedown", handleClick); document.removeEventListener("keydown", handleKey); };
   }, [open]);
 
+  const bg = highlight
+    ? "bg-gray-900 dark:bg-gray-950 text-white border-gray-800 dark:border-gray-700"
+    : accent
+      ? "bg-gray-100 dark:bg-gray-700/50 shadow-sm border-gray-200 dark:border-gray-600"
+      : "bg-white dark:bg-gray-800 shadow-sm border-gray-200 dark:border-gray-700";
+
   return (
-    <div ref={ref} className={`relative rounded-xl border p-4 ${highlight ? "bg-gray-900 dark:bg-gray-950 text-white border-gray-800 dark:border-gray-700" : "bg-white dark:bg-gray-800 shadow-sm border-gray-200 dark:border-gray-700"}`}>
+    <div ref={ref} className={`relative rounded-xl border p-4 ${bg}`}>
       <div className="flex items-center justify-between mb-1">
         <p className={`text-xs ${highlight ? "text-gray-300" : "text-gray-500 dark:text-gray-400"}`}>{label}</p>
         {info && (

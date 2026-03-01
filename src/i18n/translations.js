@@ -8,6 +8,10 @@ export const translations = {
     title: "Marginale belastingdruk 2026",
     subtitle: "Nederland \u00b7 Box 1 \u00b7 onder AOW-leeftijd",
 
+    // Intro
+    introStrong: "Weet jij hoeveel belasting je betaalt over je laatstverdiende euro?",
+    introText: "Niet je gemiddelde tarief, maar je marginale tarief \u2014 en dat is waarschijnlijk hoger dan je denkt. De afbouw van heffingskortingen kan je tarief tot 56% oplopen. Vul je inkomen in.",
+
     // Income input
     grossIncome: "Bruto jaarinkomen",
 
@@ -16,6 +20,7 @@ export const translations = {
     bracket1: "Schijf 1",
     bracket2: "Schijf 2",
     bracket3: "Schijf 3",
+    deltaLabel: "Effect kortingen",
     ahkPhaseout: "Afbouw AHK",
     akPhaseout: "Afbouw AK",
     akBuildup: "Opbouw AK",
@@ -31,6 +36,8 @@ export const translations = {
       "Arbeidskorting \u2014 een belastingkorting voor werkenden (max \u20ac5.685). Boven \u20ac45.592 wordt deze afgebouwd: per extra euro verlies je 6,5 cent korting, wat je marginale tarief met 6,5% verhoogt.",
     akBuildupInfo:
       "Tot \u20ac45.592 wordt de arbeidskorting opgebouwd: per extra euro verdienen krijg je meer korting, wat je marginale tarief verlaagt. Het sterkste effect is tussen \u20ac11.965\u2013\u20ac25.845 (\u221231%).",
+    deltaInfo:
+      "Het verschil tussen je werkelijke marginale tarief en het schijftarief. Dit is het netto-effect van alle heffingskortingen samen. Positief (rood) = kortingen verhogen je tarief door afbouw. Negatief (groen) = kortingen verlagen je tarief door opbouw.",
 
     // Chart
     chartTitle: "Marginale belastingdruk per inkomensniveau",
@@ -159,6 +166,10 @@ export const translations = {
     title: "Marginal Tax Rate 2026",
     subtitle: "Netherlands \u00b7 Box 1 \u00b7 below state pension age",
 
+    // Intro
+    introStrong: "Do you know how much tax you pay on your last euro earned?",
+    introText: "Not your average rate, but your marginal rate \u2014 and it\u2019s probably higher than you think. The phaseout of tax credits can push your rate up to 56%. Enter your income below.",
+
     // Income input
     grossIncome: "Gross annual income",
 
@@ -167,6 +178,7 @@ export const translations = {
     bracket1: "Bracket 1",
     bracket2: "Bracket 2",
     bracket3: "Bracket 3",
+    deltaLabel: "Credit effect",
     ahkPhaseout: "GTC phaseout",
     akPhaseout: "EPTC phaseout",
     akBuildup: "EPTC buildup",
@@ -182,6 +194,8 @@ export const translations = {
       "Employed Person\u2019s Tax Credit \u2014 a credit for workers (max \u20ac5,685). Above \u20ac45,592 it phases out: for every extra euro you lose 6.5 cents of credit, raising your marginal rate by 6.5%.",
     akBuildupInfo:
       "Up to \u20ac45,592 the Employed Person\u2019s Tax Credit builds up: every extra euro earned gives you more credit, lowering your marginal rate. The strongest effect is between \u20ac11,965\u2013\u20ac25,845 (\u221231%).",
+    deltaInfo:
+      "The difference between your actual marginal rate and the bracket rate. This is the net effect of all tax credits combined. Positive (red) = credits raise your rate due to phaseout. Negative (green) = credits lower your rate due to buildup.",
 
     // Chart
     chartTitle: "Marginal tax rate by income level",
