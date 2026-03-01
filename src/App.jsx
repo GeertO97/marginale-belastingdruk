@@ -109,8 +109,10 @@ function LanguageDropdown() {
   useEffect(() => {
     if (!open) return;
     const handleClick = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const handleKey = (e) => { if (e.key === "Escape") setOpen(false); };
     document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => { document.removeEventListener("mousedown", handleClick); document.removeEventListener("keydown", handleKey); };
   }, [open]);
 
   return (
@@ -211,7 +213,7 @@ export default function App() {
   };
 
   const bracketLabel = income < 38883 ? t.bracket1 : income < 78426 ? t.bracket2 : t.bracket3;
-  const netParts = t.netPerEuro(formatEuro(income, t.locale), (1 - comp.total).toFixed(2));
+  const netParts = t.netPerEuro(formatEuro(income, t.locale), (1 - comp.total).toLocaleString(t.locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
   const chartColors = {
     grid: dark ? "#334155" : "#f1f5f9",
@@ -492,8 +494,10 @@ function Card({ label, value, highlight, color, info }) {
   useEffect(() => {
     if (!open) return;
     const handleClick = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const handleKey = (e) => { if (e.key === "Escape") setOpen(false); };
     document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => { document.removeEventListener("mousedown", handleClick); document.removeEventListener("keydown", handleKey); };
   }, [open]);
 
   return (
