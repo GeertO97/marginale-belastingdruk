@@ -79,7 +79,7 @@ function generateChartData() {
 }
 
 const formatEuro = (v, locale) => `\u20ac${Number(v).toLocaleString(locale)}`;
-const formatPct = (v) => `${v.toFixed(2)}%`;
+const formatPct = (v, locale) => `${v.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
 
 const COMPONENT_COLORS = {
   bracketRate: "#3b82f6",
@@ -181,7 +181,7 @@ function CustomTooltip({ active, payload, label }) {
   return (
     <div className="bg-gray-900 dark:bg-gray-950 dark:border dark:border-gray-700 text-white rounded-lg shadow-xl px-4 py-3 text-sm min-w-[180px]">
       <p className="text-gray-400 text-xs mb-2">{formatEuro(label, t.locale)}</p>
-      <p className="text-2xl font-bold mb-2">{point.total.toFixed(1)}%</p>
+      <p className="text-2xl font-bold mb-2">{point.total.toLocaleString(t.locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</p>
       <div className="border-t border-gray-700 pt-2 space-y-1">
         {components.map((c) => (
           <div key={c.key} className="flex justify-between gap-4">
@@ -189,7 +189,7 @@ function CustomTooltip({ active, payload, label }) {
               <span className="inline-block w-2 h-2 rounded-full" style={{ background: COMPONENT_COLORS[c.key] }} />
               <span className="text-gray-300 text-xs">{t[c.tKey]}</span>
             </span>
-            <span className="font-mono text-xs">{point[c.key] > 0 ? "+" : ""}{point[c.key].toFixed(1)}%</span>
+            <span className="font-mono text-xs">{point[c.key] > 0 ? "+" : ""}{point[c.key].toLocaleString(t.locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</span>
           </div>
         ))}
       </div>
@@ -264,11 +264,11 @@ export default function App() {
 
       {/* Result cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-        <Card label={t.marginalRate} value={formatPct(comp.total * 100)} highlight info={t.marginalRateInfo} />
-        <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
-        <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
-        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
-        <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
+        <Card label={t.marginalRate} value={formatPct(comp.total * 100, t.locale)} highlight info={t.marginalRateInfo} />
+        <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100, t.locale)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
+        <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100, t.locale)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
+        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100, t.locale)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
+        <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100, t.locale)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
       </div>
 
       {/* Net per extra euro */}
