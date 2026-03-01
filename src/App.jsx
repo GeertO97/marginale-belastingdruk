@@ -188,7 +188,7 @@ export default function App() {
       <div className="bg-white rounded-xl shadow-sm border p-5 mb-6">
         <h2 className="text-sm font-semibold text-gray-700 mb-4">Marginale belastingdruk per inkomensniveau</h2>
         <ResponsiveContainer width="100%" height={360}>
-          <AreaChart data={chartData} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
+          <AreaChart data={chartData} margin={{ top: 25, right: 20, left: 0, bottom: 5 }}>
             <defs>
               <linearGradient id="gradTotal" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.25} />
