@@ -63,12 +63,20 @@ export const translations = {
       "Het effectieve marginale tarief bestaat uit het schijftarief, plus de afbouw van heffingskortingen (die het tarief verhogen), minus de opbouw van heffingskortingen (die het tarief verlagen):",
     formula: "Marginaal tarief = Schijftarief + Afbouw AHK + Afbouw AK \u2212 Opbouw AK",
 
+    // Accessibility
+    themeToggleLabel: "Donkere modus",
+    themeToggleLabelLight: "Lichte modus",
+    infoButtonLabel: "Meer informatie",
+
     // Tax brackets table
     bracketsTitle: "Schijftarieven 2026",
     thBracket: "Schijf",
     thFrom: "Van",
     thTo: "Tot",
     thRate: "Tarief",
+    bracketRate1: "35,75%",
+    bracketRate2: "37,56%",
+    bracketRate3: "49,50%",
 
     // AHK table
     ahkTitle: "Algemene heffingskorting (AHK) 2026",
@@ -207,12 +215,20 @@ export const translations = {
     formula:
       "Marginal rate = Bracket rate + GTC phaseout + EPTC phaseout \u2212 EPTC buildup",
 
+    // Accessibility
+    themeToggleLabel: "Dark mode",
+    themeToggleLabelLight: "Light mode",
+    infoButtonLabel: "More information",
+
     // Tax brackets table
     bracketsTitle: "Tax brackets 2026",
     thBracket: "Bracket",
     thFrom: "From",
     thTo: "To",
     thRate: "Rate",
+    bracketRate1: "35.75%",
+    bracketRate2: "37.56%",
+    bracketRate3: "49.50%",
 
     // AHK table
     ahkTitle: "General Tax Credit (GTC) 2026",

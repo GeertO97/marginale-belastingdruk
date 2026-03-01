@@ -117,6 +117,8 @@ function LanguageDropdown() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
         className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-sm"
       >
         <span className="text-base leading-none">{current.flag}</span>
@@ -149,11 +151,12 @@ function LanguageDropdown() {
 
 function ThemeToggle() {
   const { dark, toggleTheme } = useTheme();
+  const { t } = useLanguage();
   return (
     <button
       onClick={toggleTheme}
       className="p-1.5 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-sm"
-      title={dark ? "Light mode" : "Dark mode"}
+      aria-label={dark ? t.themeToggleLabelLight : t.themeToggleLabel}
     >
       {dark ? (
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -176,7 +179,7 @@ function CustomTooltip({ active, payload, label }) {
   if (!point) return null;
   const components = TOOLTIP_KEYS.filter((c) => point[c.key] !== 0);
   return (
-    <div className="bg-gray-900 text-white rounded-lg shadow-xl px-4 py-3 text-sm min-w-[180px]">
+    <div className="bg-gray-900 dark:bg-gray-950 dark:border dark:border-gray-700 text-white rounded-lg shadow-xl px-4 py-3 text-sm min-w-[180px]">
       <p className="text-gray-400 text-xs mb-2">{formatEuro(label, t.locale)}</p>
       <p className="text-2xl font-bold mb-2">{point.total.toFixed(1)}%</p>
       <div className="border-t border-gray-700 pt-2 space-y-1">
@@ -253,30 +256,26 @@ export default function App() {
           value={Number(income).toLocaleString(t.locale)}
           onChange={(e) => {
             const raw = e.target.value.replace(/\D/g, "");
-            if (raw === "") return;
-            handleIncomeChange(Math.min(500000, Math.max(0, +raw)));
+            handleIncomeChange(raw === "" ? 0 : Math.min(150000, Math.max(0, +raw)));
           }}
           className="w-36 border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-1.5 text-sm"
         />
       </div>
 
-      {/* Results — greyed out until user sets income */}
-      <div className={`relative transition-all duration-300 ${hasInteracted ? "" : "opacity-40 pointer-events-none select-none"}`}>
-        {!hasInteracted && (
-          <p className="text-center text-sm text-gray-400 dark:text-gray-500 mb-4 pointer-events-auto">{t.enterIncome}</p>
-        )}
+      {/* Result cards */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+        <Card label={t.marginalRate} value={formatPct(comp.total * 100)} highlight info={t.marginalRateInfo} />
+        <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
+        <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
+        <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
+        <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
+      </div>
 
-        {/* Result cards */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-          <Card label={t.marginalRate} value={formatPct(comp.total * 100)} highlight info={t.marginalRateInfo} />
-          <Card label={bracketLabel} value={formatPct(comp.bracketRate * 100)} color="text-blue-600 dark:text-blue-400" info={t.bracketRateInfo} />
-          <Card label={t.ahkPhaseout} value={formatPct(comp.algemeenPhaseout * 100)} color="text-amber-600 dark:text-amber-400" info={t.ahkPhaseoutInfo} />
-          <Card label={t.akPhaseout} value={formatPct(comp.arbeidPhaseout * 100)} color="text-rose-600 dark:text-rose-400" info={t.akPhaseoutInfo} />
-          <Card label={t.akBuildup} value={`-${formatPct(comp.arbeidBuildup * 100)}`} color="text-green-600 dark:text-green-400" info={t.akBuildupInfo} />
-        </div>
-
-        {/* Net per extra euro */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6">
+      {/* Net per extra euro */}
+      <div className={`bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6 transition-all duration-300 ${hasInteracted ? "" : "opacity-40"}`}>
+        {!hasInteracted ? (
+          <p className="text-sm text-gray-500 dark:text-gray-400">{t.enterIncome}</p>
+        ) : (
           <p className="text-sm text-gray-600 dark:text-gray-300">
             {netParts.prefix}<strong className="text-gray-900 dark:text-gray-100">{netParts.income}</strong>{netParts.middle}
             <strong className="text-green-700 dark:text-green-400">{netParts.net}</strong>{netParts.suffix}
@@ -284,17 +283,18 @@ export default function App() {
               <span className="text-amber-700 dark:text-amber-400 ml-1">{t.netPerEuroWarning}</span>
             )}
           </p>
-        </div>
+        )}
+      </div>
 
-        {/* Chart */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6">
+      {/* Chart */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6">
         <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">{t.chartTitle}</h2>
         <ResponsiveContainer width="100%" height={360}>
           <AreaChart data={chartData} margin={{ top: 25, right: 20, left: 0, bottom: 5 }}>
             <defs>
               <linearGradient id="gradTotal" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.25} />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.03} />
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity={dark ? 0.35 : 0.25} />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity={dark ? 0.08 : 0.03} />
               </linearGradient>
             </defs>
             <CartesianGrid vertical={false} stroke={chartColors.grid} />
@@ -319,7 +319,6 @@ export default function App() {
             <Area type="stepAfter" dataKey="total" fill="url(#gradTotal)" stroke="#3b82f6" strokeWidth={2} dot={false} name={t.chartLegendTotal} />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
       </div>
 
       {/* Methodology */}
@@ -353,19 +352,19 @@ export default function App() {
                 <td className="py-1.5 pr-4">1</td>
                 <td className="py-1.5 pr-4">{formatEuro(0, t.locale)}</td>
                 <td className="py-1.5 pr-4">{formatEuro(38883, t.locale)}</td>
-                <td className="py-1.5">35.75%</td>
+                <td className="py-1.5">{t.bracketRate1}</td>
               </tr>
               <tr className="border-b border-gray-100 dark:border-gray-700">
                 <td className="py-1.5 pr-4">2</td>
                 <td className="py-1.5 pr-4">{formatEuro(38883, t.locale)}</td>
                 <td className="py-1.5 pr-4">{formatEuro(78426, t.locale)}</td>
-                <td className="py-1.5">37.56%</td>
+                <td className="py-1.5">{t.bracketRate2}</td>
               </tr>
               <tr>
                 <td className="py-1.5 pr-4">3</td>
                 <td className="py-1.5 pr-4">{formatEuro(78426, t.locale)}</td>
                 <td className="py-1.5 pr-4">-</td>
-                <td className="py-1.5">49.50%</td>
+                <td className="py-1.5">{t.bracketRate3}</td>
               </tr>
             </tbody>
           </table>
@@ -486,6 +485,7 @@ export default function App() {
 }
 
 function Card({ label, value, highlight, color, info }) {
+  const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -503,6 +503,8 @@ function Card({ label, value, highlight, color, info }) {
         {info && (
           <button
             onClick={() => setOpen(!open)}
+            aria-label={t.infoButtonLabel}
+            aria-expanded={open}
             className={`w-4 h-4 rounded-full text-[10px] font-bold leading-none flex items-center justify-center transition-colors ${
               highlight
                 ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
@@ -515,7 +517,7 @@ function Card({ label, value, highlight, color, info }) {
       </div>
       <p className={`text-xl font-bold ${highlight ? "" : color || "text-gray-900 dark:text-gray-100"}`}>{value}</p>
       {open && info && (
-        <div className="absolute z-10 top-full left-0 right-0 mt-1 bg-gray-900 text-white text-xs rounded-lg p-3 shadow-xl leading-relaxed">
+        <div className="absolute z-10 top-full left-0 right-0 mt-1 bg-gray-900 dark:bg-gray-950 dark:border dark:border-gray-700 text-white text-xs rounded-lg p-3 shadow-xl leading-relaxed">
           {info}
         </div>
       )}
