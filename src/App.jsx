@@ -265,10 +265,12 @@ export default function App() {
       </div>
 
       {/* Net per extra euro */}
-      <div className={`bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6 transition-all duration-300 ${hasInteracted ? "" : "opacity-40"}`}>
-        {!hasInteracted ? (
-          <p className="text-sm text-gray-500 dark:text-gray-400">{t.enterIncome}</p>
-        ) : (
+      {!hasInteracted ? (
+        <div className="rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/40 p-5 mb-6">
+          <p className="text-sm font-medium text-blue-700 dark:text-blue-300">{t.enterIncome}</p>
+        </div>
+      ) : (
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 mb-6">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             {netParts.prefix}<strong className="text-gray-900 dark:text-gray-100">{netParts.income}</strong>{netParts.middle}
             <strong className="text-green-700 dark:text-green-400">{netParts.net}</strong>{netParts.suffix}
@@ -276,8 +278,8 @@ export default function App() {
               <span className="text-amber-700 dark:text-amber-400 ml-1">{t.netPerEuroWarning}</span>
             )}
           </p>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Result cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
