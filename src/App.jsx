@@ -4,7 +4,7 @@ import { useLanguage } from "./LanguageContext.jsx";
 import { useTheme } from "./ThemeContext.jsx";
 
 // 2026 Dutch tax parameters
-const TAX = {
+export const TAX = {
   brackets: [
     { from: 0, to: 38883, rate: 0.3575 },
     { from: 38883, to: 78426, rate: 0.3756 },
@@ -25,7 +25,7 @@ const TAX = {
   ],
 };
 
-function getMarginalComponents(income) {
+export function getMarginalComponents(income) {
   let bracketRate = 0;
   for (const b of TAX.brackets) {
     if (income >= b.from && income < b.to) {
