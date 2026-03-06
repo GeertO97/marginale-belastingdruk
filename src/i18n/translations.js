@@ -3,6 +3,8 @@ export const translations = {
     locale: "nl-NL",
     langCode: "nl",
     pageTitle: "Marginale belastingdruk 2026",
+    metaDescription:
+      "Bereken je marginale belastingdruk in Nederland (2026). Ontdek hoeveel belasting je betaalt over je laatstverdiende euro en waar de verborgen pieken zitten door afbouw van heffingskortingen.",
 
     // Header
     title: "Marginale belastingdruk 2026",
@@ -169,6 +171,8 @@ export const translations = {
     locale: "en-US",
     langCode: "en",
     pageTitle: "Marginal Tax Rate 2026",
+    metaDescription:
+      "Calculate your marginal tax rate in the Netherlands (2026). Discover how much tax you pay on your last euro earned and where the hidden spikes are due to tax credit phaseouts.",
 
     // Header
     title: "Marginal Tax Rate 2026",

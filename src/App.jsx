@@ -2,30 +2,9 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from "recharts";
 import { useLanguage } from "./LanguageContext.jsx";
 import { useTheme } from "./ThemeContext.jsx";
+import { TAX, VAKANTIEGELD_FACTOR } from "./config/tax2026.js";
 
-// 2026 Dutch tax parameters
-const TAX = {
-  brackets: [
-    { from: 0, to: 38883, rate: 0.3575 },
-    { from: 38883, to: 78426, rate: 0.3756 },
-    { from: 78426, to: Infinity, rate: 0.495 },
-  ],
-  algemeenMax: 3115,
-  algemeenFullUntil: 29736,
-  algemeenPhaseout: 0.06398,
-  algemeenEnd: 78426,
-  arbeidMax: 5685,
-  arbeidPhaseoutStart: 45592,
-  arbeidPhaseout: 0.0651,
-  arbeidEnd: 132920,
-  arbeidBuildup: [
-    { from: 0, to: 11965, rate: 0.08324 },
-    { from: 11965, to: 25845, rate: 0.31009 },
-    { from: 25845, to: 45592, rate: 0.01950 },
-  ],
-};
-
-function getMarginalComponents(income) {
+export function getMarginalComponents(income) {
   let bracketRate = 0;
   for (const b of TAX.brackets) {
     if (income >= b.from && income < b.to) {
@@ -33,7 +12,6 @@ function getMarginalComponents(income) {
       break;
     }
   }
-  if (income >= TAX.brackets[2].from) bracketRate = TAX.brackets[2].rate;
 
   let algemeenPhaseout = 0;
   if (income > TAX.algemeenFullUntil && income < TAX.algemeenEnd) {
@@ -130,10 +108,12 @@ function LanguageDropdown() {
         </svg>
       </button>
       {open && (
-        <div className="absolute right-0 mt-1 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg overflow-hidden z-20">
+        <div role="listbox" className="absolute right-0 mt-1 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg overflow-hidden z-20">
           {LANGUAGES.map((l) => (
             <button
               key={l.code}
+              role="option"
+              aria-selected={l.code === lang}
               onClick={() => { setLang(l.code); setOpen(false); }}
               className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm text-left transition-colors ${
                 l.code === lang
@@ -208,10 +188,10 @@ export default function App() {
   const [monthlyIncome, setMonthlyIncome] = useState("");
   const [includeVakantiegeld, setIncludeVakantiegeld] = useState(true);
   const chartData = useMemo(generateChartData, []);
-  const comp = getMarginalComponents(income);
+  const comp = useMemo(() => getMarginalComponents(income), [income]);
 
   const calculatedYearly = monthlyIncome
-    ? Math.round(+monthlyIncome * 12 * (includeVakantiegeld ? 1.08 : 1))
+    ? Math.round(+monthlyIncome * 12 * (includeVakantiegeld ? VAKANTIEGELD_FACTOR : 1))
     : 0;
 
   const handleMonthlyChange = (e) => {
@@ -219,7 +199,7 @@ export default function App() {
     setMonthlyIncome(val);
     const monthly = Math.max(0, +val);
     if (val) {
-      const yearly = Math.round(monthly * 12 * (includeVakantiegeld ? 1.08 : 1));
+      const yearly = Math.round(monthly * 12 * (includeVakantiegeld ? VAKANTIEGELD_FACTOR : 1));
       setIncome(yearly);
       if (!hasInteracted) setHasInteracted(true);
     }
@@ -229,7 +209,7 @@ export default function App() {
     const checked = e.target.checked;
     setIncludeVakantiegeld(checked);
     if (monthlyIncome) {
-      setIncome(Math.round(+monthlyIncome * 12 * (checked ? 1.08 : 1)));
+      setIncome(Math.round(+monthlyIncome * 12 * (checked ? VAKANTIEGELD_FACTOR : 1)));
     }
   };
 
@@ -252,7 +232,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 max-w-4xl mx-auto transition-colors">
+    <div id="main" className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 max-w-4xl mx-auto transition-colors">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded">Skip to content</a>
       <div className="flex items-start justify-between mb-1">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{t.title}</h1>
