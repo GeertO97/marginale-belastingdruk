@@ -341,8 +341,9 @@ export default function App() {
       </div>
 
       {/* Methodology */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 text-sm text-gray-700 dark:text-gray-300 space-y-5">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{t.methodologyTitle}</h2>
+      <details className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300">
+        <summary className="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer p-5 select-none">{t.methodologyTitle}</summary>
+        <div className="px-5 pb-5 space-y-5">
 
         <div className="space-y-3">
           <h3 className="font-semibold text-gray-800 dark:text-gray-200">{t.howItWorksTitle}</h3>
@@ -485,16 +486,27 @@ export default function App() {
           </ul>
         </div>
 
-        <div className="space-y-3">
-          <h3 className="font-semibold text-gray-800 dark:text-gray-200">{t.faqTitle}</h3>
+      </div>
+      </details>
+
+      {/* FAQ */}
+      <details className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300">
+        <summary className="text-lg font-semibold text-gray-900 dark:text-gray-100 cursor-pointer p-5 select-none">{t.faqTitle}</summary>
+        <div className="px-5 pb-5 space-y-3">
           <details className="group">
             <summary className="cursor-pointer font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
               {t.faqPrivacyQ}
             </summary>
             <p className="mt-2 pl-4 text-gray-600 dark:text-gray-400">{t.faqPrivacyA}</p>
           </details>
+          <details className="group">
+            <summary className="cursor-pointer font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+              {t.faqWhyQ}
+            </summary>
+            <p className="mt-2 pl-4 text-gray-600 dark:text-gray-400">{t.faqWhyA}</p>
+          </details>
         </div>
-      </div>
+      </details>
 
       <p className="text-xs text-gray-400 dark:text-gray-500 text-center mt-6">
         {t.footerSource}<a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/" className="underline hover:text-gray-500 dark:hover:text-gray-400" target="_blank" rel="noopener noreferrer">{t.footerSourceLink}</a>{t.footerDisclaimer}

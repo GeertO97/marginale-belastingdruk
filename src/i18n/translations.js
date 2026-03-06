@@ -65,7 +65,7 @@ export const translations = {
     methodologyTitle: "Verantwoording & methodologie",
     howItWorksTitle: "Hoe werkt het?",
     howItWorksP1:
-      "De marginale belastingdruk is het percentage belasting dat je betaalt over je laatst verdiende euro. Dit is niet hetzelfde als je gemiddelde belastingdruk (effectief tarief). Wiskundig is het de afgeleide van de totale belastingfunctie naar het inkomen: dT/dY.",
+      "De marginale belastingdruk is het percentage belasting dat je betaalt over je laatst verdiende euro. Dit is niet hetzelfde als je gemiddelde belastingdruk (effectief tarief).",
     howItWorksP2:
       "Het effectieve marginale tarief bestaat uit het schijftarief, plus de afbouw van heffingskortingen (die het tarief verhogen), minus de opbouw van heffingskortingen (die het tarief verlagen):",
     formula: "Marginaal tarief = Schijftarief + Afbouw AHK + Afbouw AK \u2212 Opbouw AK",
@@ -150,6 +150,8 @@ export const translations = {
     faqTitle: "Veelgestelde vragen",
     faqPrivacyQ: "Worden mijn gegevens opgeslagen of verwerkt?",
     faqPrivacyA: "Nee. Alle berekeningen worden volledig in je browser uitgevoerd. Er worden geen gegevens naar een server gestuurd, opgeslagen of op enige wijze verwerkt. Deze tool heeft geen backend.",
+    faqWhyQ: "Waarom deze tool en niet een andere belastingcalculator?",
+    faqWhyA: "De meeste online belastingcalculators (zoals berekenhet.nl, thetax.nl of de tool van de Belastingdienst) tonen alleen je gemiddelde belastingdruk of berekenen je nettoloon bij één inkomensniveau. Wat ze niet laten zien is het marginale tarief — het percentage dat je betaalt over je laatst verdiende euro. Door de gelijktijdige afbouw van de algemene heffingskorting (6,398%) en arbeidskorting (6,51%) ligt het werkelijke marginale tarief tussen ca. €46.000 en €78.000 rond de 50%, terwijl het schijftarief slechts 37,56% is. Deze tool toont als enige een doorlopende grafiek van het marginale tarief over alle inkomensniveaus, zodat je in één oogopslag ziet waar de verborgen pieken zitten.",
 
     // Footer
     footerSource: "Bron: ",
@@ -223,7 +225,7 @@ export const translations = {
     methodologyTitle: "Methodology & sources",
     howItWorksTitle: "How does it work?",
     howItWorksP1:
-      "The marginal tax rate is the percentage of tax you pay on your last euro earned. This is not the same as your average tax rate (effective rate). Mathematically it is the derivative of the total tax function with respect to income: dT/dY.",
+      "The marginal tax rate is the percentage of tax you pay on your last euro earned. This is not the same as your average tax rate (effective rate).",
     howItWorksP2:
       "The effective marginal rate consists of the bracket rate, plus the phaseout of tax credits (which raises the rate), minus the buildup of tax credits (which lowers the rate):",
     formula:
@@ -309,6 +311,8 @@ export const translations = {
     faqTitle: "Frequently asked questions",
     faqPrivacyQ: "Is my data stored or processed?",
     faqPrivacyA: "No. All calculations run entirely in your browser. No data is sent to a server, stored, or processed in any way. This tool has no backend.",
+    faqWhyQ: "Why this tool instead of other tax calculators?",
+    faqWhyA: "Most online tax calculators (like berekenhet.nl, thetax.nl, or the Belastingdienst tool) only show your average tax rate or calculate your net salary for a single income level. What they don't show is the marginal rate — the percentage you pay on your last euro earned. Due to the simultaneous phase-out of the algemene heffingskorting (6.398%) and arbeidskorting (6.51%), the real marginal rate between roughly €46,000 and €78,000 is around 50%, while the bracket rate is only 37.56%. This tool is the only one that shows a continuous chart of the marginal rate across all income levels, so you can see at a glance where the hidden spikes are.",
 
     // Footer
     footerSource: "Source: ",
