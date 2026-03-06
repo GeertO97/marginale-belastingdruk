@@ -10,7 +10,7 @@ export const translations = {
 
     // Intro
     introStrong: "Weet jij hoeveel belasting je betaalt over je laatstverdiende euro?",
-    introText: "Niet je gemiddelde tarief, maar je marginale tarief \u2014 en dat is waarschijnlijk hoger dan je denkt. De afbouw van heffingskortingen kan je tarief tot 56% oplopen. Vul je inkomen in.",
+    introText: "Dit is je marginale tarief en is waarschijnlijk hoger dan je denkt. Door afbouw van heffingskortingen kan je tarief tot oplopen tot wel 56%. Vul je inkomen in en zie het verschil.",
 
     // Income input
     grossIncome: "Bruto jaarinkomen",

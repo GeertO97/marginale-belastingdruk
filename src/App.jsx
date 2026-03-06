@@ -520,7 +520,7 @@ function Card({ label, value, highlight, accent, color, info }) {
   const bg = highlight
     ? "bg-gray-900 dark:bg-gray-950 text-white border-gray-800 dark:border-gray-700"
     : accent
-      ? "bg-gray-100 dark:bg-gray-700/50 shadow-sm border-gray-200 dark:border-gray-600"
+      ? "bg-gray-100 dark:bg-gray-700 shadow-sm border-gray-200 dark:border-gray-500"
       : "bg-white dark:bg-gray-800 shadow-sm border-gray-200 dark:border-gray-700";
 
   return (
