@@ -17,7 +17,7 @@ export const translations = {
     monthlyToggle: "Bereken vanuit maandsalaris",
     monthlySalary: "Maandsalaris",
     monthlyPlaceholder: "bijv. 4.000",
-    vakantiegeldLabel: "Exclusief 8% vakantiegeld",
+    vakantiegeldLabel: "Tel 8% vakantiegeld erbij op",
     monthlyResultSuffix: "bruto per jaar",
     monthlyVakantiegeldNote: "(incl. 8% vakantiegeld)",
 
@@ -181,7 +181,7 @@ export const translations = {
     monthlyToggle: "Calculate from monthly salary",
     monthlySalary: "Monthly salary",
     monthlyPlaceholder: "e.g. 4,000",
-    vakantiegeldLabel: "Excluding 8% holiday allowance",
+    vakantiegeldLabel: "Add 8% holiday allowance",
     monthlyResultSuffix: "gross per year",
     monthlyVakantiegeldNote: "(incl. 8% holiday allowance)",
 
