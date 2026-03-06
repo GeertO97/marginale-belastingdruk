@@ -14,6 +14,12 @@ export const translations = {
 
     // Income input
     grossIncome: "Bruto jaarinkomen",
+    monthlyToggle: "Bereken vanuit maandsalaris",
+    monthlySalary: "Maandsalaris",
+    monthlyPlaceholder: "bijv. 4.000",
+    vakantiegeldLabel: "Tel 8% vakantiegeld erbij op",
+    monthlyResultSuffix: "bruto per jaar",
+    monthlyVakantiegeldNote: "(incl. 8% vakantiegeld)",
 
     // Card labels
     marginalRate: "Marginaal tarief",
@@ -174,6 +180,12 @@ export const translations = {
 
     // Income input
     grossIncome: "Gross annual income",
+    monthlyToggle: "Calculate from monthly salary",
+    monthlySalary: "Monthly salary",
+    monthlyPlaceholder: "e.g. 4,000",
+    vakantiegeldLabel: "Add 8% holiday allowance",
+    monthlyResultSuffix: "gross per year",
+    monthlyVakantiegeldNote: "(incl. 8% holiday allowance)",
 
     // Card labels
     marginalRate: "Marginal rate",

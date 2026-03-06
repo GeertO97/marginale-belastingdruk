@@ -204,11 +204,38 @@ export default function App() {
   const { dark } = useTheme();
   const [income, setIncome] = useState(50000);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [showMonthly, setShowMonthly] = useState(false);
+  const [monthlyIncome, setMonthlyIncome] = useState("");
+  const [includeVakantiegeld, setIncludeVakantiegeld] = useState(true);
   const chartData = useMemo(generateChartData, []);
   const comp = getMarginalComponents(income);
 
+  const calculatedYearly = monthlyIncome
+    ? Math.round(+monthlyIncome * 12 * (includeVakantiegeld ? 1.08 : 1))
+    : 0;
+
+  const handleMonthlyChange = (e) => {
+    const val = e.target.value;
+    setMonthlyIncome(val);
+    const monthly = Math.max(0, +val);
+    if (val) {
+      const yearly = Math.round(monthly * 12 * (includeVakantiegeld ? 1.08 : 1));
+      setIncome(yearly);
+      if (!hasInteracted) setHasInteracted(true);
+    }
+  };
+
+  const handleVakantiegeldChange = (e) => {
+    const checked = e.target.checked;
+    setIncludeVakantiegeld(checked);
+    if (monthlyIncome) {
+      setIncome(Math.round(+monthlyIncome * 12 * (checked ? 1.08 : 1)));
+    }
+  };
+
   const handleIncomeChange = (value) => {
     setIncome(value);
+    setMonthlyIncome("");
     if (!hasInteracted) setHasInteracted(true);
   };
 
@@ -270,6 +297,48 @@ export default function App() {
           }}
           className="w-36 border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-1.5 text-sm"
         />
+
+        {/* Monthly salary converter */}
+        <button
+          onClick={() => setShowMonthly(!showMonthly)}
+          className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mt-2 flex items-center gap-1"
+        >
+          {t.monthlyToggle}
+          <span className={`transition-transform ${showMonthly ? "rotate-90" : ""}`}>▸</span>
+        </button>
+
+        {showMonthly && (
+          <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700 space-y-2">
+            <div className="flex items-center gap-3">
+              <label className="text-xs text-gray-500 dark:text-gray-400 w-24">{t.monthlySalary}</label>
+              <input
+                type="number"
+                min={0}
+                max={50000}
+                step={50}
+                value={monthlyIncome}
+                onChange={handleMonthlyChange}
+                placeholder={t.monthlyPlaceholder}
+                className="w-36 border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg px-3 py-1.5 text-sm"
+              />
+            </div>
+            <label className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={includeVakantiegeld}
+                onChange={handleVakantiegeldChange}
+                className="accent-blue-600"
+              />
+              {t.vakantiegeldLabel}
+            </label>
+            {monthlyIncome && (
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                = <strong>{formatEuro(calculatedYearly, t.locale)}</strong> {t.monthlyResultSuffix}
+                {includeVakantiegeld && <span className="text-gray-400 dark:text-gray-500"> {t.monthlyVakantiegeldNote}</span>}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Net per extra euro */}
