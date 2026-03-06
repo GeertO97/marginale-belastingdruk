@@ -2,3 +2,6 @@ node_modules
 dist
 .idea
 linkedin-post.md
+.playwright-cli
+test-*.png
+screenshots
