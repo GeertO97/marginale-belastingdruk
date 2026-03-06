@@ -130,10 +130,12 @@ function LanguageDropdown() {
         </svg>
       </button>
       {open && (
-        <div className="absolute right-0 mt-1 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg overflow-hidden z-20">
+        <div role="listbox" className="absolute right-0 mt-1 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg overflow-hidden z-20">
           {LANGUAGES.map((l) => (
             <button
               key={l.code}
+              role="option"
+              aria-selected={l.code === lang}
               onClick={() => { setLang(l.code); setOpen(false); }}
               className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm text-left transition-colors ${
                 l.code === lang
@@ -252,7 +254,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 max-w-4xl mx-auto transition-colors">
+    <div id="main" className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8 max-w-4xl mx-auto transition-colors">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded">Skip to content</a>
       <div className="flex items-start justify-between mb-1">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{t.title}</h1>
