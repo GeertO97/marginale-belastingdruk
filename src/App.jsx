@@ -121,8 +121,37 @@ function CustomTooltip({ active, payload, label }) {
 
 export default function App() {
   const [income, setIncome] = useState(69984);
+  const [showMonthly, setShowMonthly] = useState(false);
+  const [monthlyIncome, setMonthlyIncome] = useState("");
+  const [includeVakantiegeld, setIncludeVakantiegeld] = useState(true);
   const chartData = useMemo(generateChartData, []);
   const comp = getMarginalComponents(income);
+
+  const calculatedYearly = monthlyIncome
+    ? Math.round(+monthlyIncome * 12 * (includeVakantiegeld ? 1.08 : 1))
+    : 0;
+
+  const handleMonthlyChange = (e) => {
+    const val = e.target.value;
+    setMonthlyIncome(val);
+    const monthly = Math.max(0, +val);
+    if (val) {
+      setIncome(Math.round(monthly * 12 * (includeVakantiegeld ? 1.08 : 1)));
+    }
+  };
+
+  const handleVakantiegeldChange = (e) => {
+    const checked = e.target.checked;
+    setIncludeVakantiegeld(checked);
+    if (monthlyIncome) {
+      setIncome(Math.round(+monthlyIncome * 12 * (checked ? 1.08 : 1)));
+    }
+  };
+
+  const handleIncomeChange = (val) => {
+    setIncome(val);
+    setMonthlyIncome("");
+  };
 
   const bracketLabel = income < 38883 ? "Schijf 1" : income < 78426 ? "Schijf 2" : "Schijf 3";
 
@@ -142,7 +171,7 @@ export default function App() {
             max={150000}
             step={500}
             value={income}
-            onChange={(e) => setIncome(+e.target.value)}
+            onChange={(e) => handleIncomeChange(+e.target.value)}
             className="flex-1 h-2 accent-blue-600"
           />
         </div>
@@ -152,9 +181,51 @@ export default function App() {
           max={500000}
           step={100}
           value={income}
-          onChange={(e) => setIncome(Math.max(0, +e.target.value))}
+          onChange={(e) => handleIncomeChange(Math.max(0, +e.target.value))}
           className="w-36 border rounded-lg px-3 py-1.5 text-sm"
         />
+
+        {/* Monthly salary converter */}
+        <button
+          onClick={() => setShowMonthly(!showMonthly)}
+          className="text-xs text-blue-600 hover:text-blue-800 mt-2 flex items-center gap-1"
+        >
+          Bereken vanuit maandsalaris
+          <span className={`transition-transform ${showMonthly ? "rotate-90" : ""}`}>▸</span>
+        </button>
+
+        {showMonthly && (
+          <div className="mt-3 pt-3 border-t border-gray-100 space-y-2">
+            <div className="flex items-center gap-3">
+              <label className="text-xs text-gray-500 w-24">Maandsalaris</label>
+              <input
+                type="number"
+                min={0}
+                max={50000}
+                step={50}
+                value={monthlyIncome}
+                onChange={handleMonthlyChange}
+                placeholder="bijv. 4.000"
+                className="w-36 border rounded-lg px-3 py-1.5 text-sm"
+              />
+            </div>
+            <label className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={includeVakantiegeld}
+                onChange={handleVakantiegeldChange}
+                className="accent-blue-600"
+              />
+              Exclusief 8% vakantiegeld
+            </label>
+            {monthlyIncome && (
+              <p className="text-xs text-gray-500">
+                = <strong>{formatEuro(calculatedYearly)}</strong> bruto per jaar
+                {includeVakantiegeld && <span className="text-gray-400"> (incl. 8% vakantiegeld)</span>}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Result cards */}
