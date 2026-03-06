@@ -4,8 +4,7 @@ import { useLanguage } from "./LanguageContext.jsx";
 import { useTheme } from "./ThemeContext.jsx";
 import { TAX, VAKANTIEGELD_FACTOR } from "./config/tax2026.js";
 
-function getMarginalComponents(income) {
-  // Last bracket uses `to: Infinity`, so the loop covers all income levels
+export function getMarginalComponents(income) {
   let bracketRate = 0;
   for (const b of TAX.brackets) {
     if (income >= b.from && income < b.to) {

@@ -1,0 +1,216 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - heading "Marginal Tax Rate 2026" [level=1] [ref=e263]
+        - paragraph [ref=e7]: Netherlands · Box 1 · below state pension age
+      - generic [ref=e8]:
+        - button "Dark mode" [ref=e264]:
+          - img [ref=e10]
+        - button "🇬🇧 EN" [ref=e265]:
+          - generic [ref=e14]: 🇬🇧
+          - generic [ref=e15]: EN
+          - img [ref=e16]
+    - paragraph [ref=e19]:
+      - strong [ref=e20]: Do you know how much tax you pay on your last euro earned?
+      - text: Not your average rate, but your marginal rate — and it’s probably higher than you think. The phaseout of tax credits can push your rate up to 56%. Enter your income below.
+    - generic [ref=e21]:
+      - generic [ref=e22]: Gross annual income
+      - generic [ref=e23]:
+        - generic [ref=e24]: €80,000
+        - slider [ref=e25]: "80000"
+      - textbox [ref=e26]: 80,000
+      - button "Calculate from monthly salary ▸" [ref=e266]:
+        - text: Calculate from monthly salary
+        - generic [ref=e28]: ▸
+    - paragraph [ref=e30]:
+      - text: At an income of
+      - strong [ref=e252]: €80,000
+      - text: ", each extra gross euro leaves you with"
+      - strong [ref=e253]: €0.44
+      - text: net.That is less than at the top rate of 49.50% — due to the phaseout of tax credits.
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Marginal rate
+          - button "More information" [ref=e267]: i
+        - paragraph [ref=e36]: 56.01%
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: Bracket 3
+          - button "More information" [ref=e268]: i
+        - paragraph [ref=e41]: 49.50%
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - paragraph [ref=e44]: GTC phaseout
+          - button "More information" [ref=e269]: i
+        - paragraph [ref=e46]: 0.00%
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - paragraph [ref=e49]: EPTC phaseout
+          - button "More information" [ref=e270]: i
+        - paragraph [ref=e51]: 6.51%
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: EPTC buildup
+          - button "More information" [ref=e271]: i
+        - paragraph [ref=e56]: "-0.00%"
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Credit effect
+          - button "More information" [ref=e272]: i
+        - paragraph [ref=e61]: +6.51%
+    - generic [ref=e62]:
+      - heading "Marginal tax rate by income level" [level=2] [ref=e273]
+      - img [ref=e66]:
+        - generic [ref=e70]:
+          - generic [ref=e72]: €3k
+          - generic [ref=e74]: €9k
+          - generic [ref=e76]: €15k
+          - generic [ref=e78]: €21k
+          - generic [ref=e80]: €28k
+          - generic [ref=e82]: €35k
+          - generic [ref=e84]: €41k
+          - generic [ref=e86]: €48k
+          - generic [ref=e88]: €55k
+          - generic [ref=e90]: €61k
+          - generic [ref=e92]: €68k
+          - generic [ref=e94]: €75k
+          - generic [ref=e96]: €82k
+          - generic [ref=e98]: €89k
+          - generic [ref=e100]: €96k
+          - generic [ref=e102]: €104k
+          - generic [ref=e104]: €111k
+          - generic [ref=e106]: €119k
+          - generic [ref=e108]: €126k
+          - generic [ref=e110]: €134k
+          - generic [ref=e112]: €142k
+          - generic [ref=e114]: €150k
+        - generic [ref=e116]:
+          - generic [ref=e118]: 0%
+          - generic [ref=e120]: 20%
+          - generic [ref=e122]: 40%
+          - generic [ref=e124]: 65%
+        - generic [ref=e126]: Top rate 49.5%
+        - generic [ref=e255]: €80,000
+    - generic [ref=e135]:
+      - heading "Methodology & sources" [level=2] [ref=e274]
+      - generic [ref=e137]:
+        - heading "How does it work?" [level=3] [ref=e275]
+        - paragraph [ref=e139]:
+          - generic [ref=e140]:
+            - text: "The marginal tax rate is the percentage of tax you pay on your last euro earned. This is not the same as your average tax rate (effective rate). Mathematically it is the derivative of the total tax function with respect to income:"
+            - emphasis [ref=e141]: dT/dY
+          - text: .
+        - paragraph [ref=e142]: "The effective marginal rate consists of the bracket rate, plus the phaseout of tax credits (which raises the rate), minus the buildup of tax credits (which lowers the rate):"
+        - paragraph [ref=e143]: Marginal rate = Bracket rate + GTC phaseout + EPTC phaseout − EPTC buildup
+      - generic [ref=e144]:
+        - heading "Tax brackets 2026" [level=3] [ref=e276]
+        - table [ref=e146]:
+          - rowgroup [ref=e147]:
+            - row "Bracket From To Rate" [ref=e277]:
+              - columnheader "Bracket" [ref=e278]
+              - columnheader "From" [ref=e279]
+              - columnheader "To" [ref=e280]
+              - columnheader "Rate" [ref=e281]
+          - rowgroup [ref=e153]:
+            - row "1 €0 €38,883 35.75%" [ref=e282]:
+              - cell "1" [ref=e155]
+              - cell "€0" [ref=e156]
+              - cell "€38,883" [ref=e283]
+              - cell "35.75%" [ref=e284]
+            - row "2 €38,883 €78,426 37.56%" [ref=e285]:
+              - cell "2" [ref=e160]
+              - cell "€38,883" [ref=e286]
+              - cell "€78,426" [ref=e287]
+              - cell "37.56%" [ref=e288]
+            - row "3 €78,426 - 49.50%" [ref=e289]:
+              - cell "3" [ref=e165]
+              - cell "€78,426" [ref=e290]
+              - cell "-" [ref=e167]
+              - cell "49.50%" [ref=e291]
+      - generic [ref=e169]:
+        - heading "General Tax Credit (GTC) 2026" [level=3] [ref=e292]
+        - paragraph [ref=e171]: Maximum €3,115. Phases out at 6.398% of income above €29,736, reaching €0 at €78,426.
+        - table [ref=e172]:
+          - rowgroup [ref=e173]:
+            - row "Income Effect" [ref=e293]:
+              - columnheader "Income" [ref=e294]
+              - columnheader "Effect" [ref=e176]
+          - rowgroup [ref=e177]:
+            - 'row "up to €29,736 Full: €3,115" [ref=e295]':
+              - cell "up to €29,736" [ref=e296]
+              - 'cell "Full: €3,115" [ref=e297]'
+            - 'row "€29,736 – €78,426 Phaseout: −6.398% per extra euro (raises marginal rate)" [ref=e298]':
+              - cell "€29,736 – €78,426" [ref=e299]
+              - 'cell "Phaseout: −6.398% per extra euro (raises marginal rate)" [ref=e300]'
+            - row "Above €78,426 €0 (no further effect)" [ref=e301]:
+              - cell "Above €78,426" [ref=e302]
+              - cell "€0 (no further effect)" [ref=e303]
+      - generic [ref=e187]:
+        - heading "Employed Person’s Tax Credit (EPTC) 2026" [level=3] [ref=e304]
+        - paragraph [ref=e189]: Maximum €5,685. First builds up (lowers marginal rate), then phases out (raises marginal rate).
+        - table [ref=e190]:
+          - rowgroup [ref=e191]:
+            - row "Income Rate Effect on marginal rate" [ref=e305]:
+              - columnheader "Income" [ref=e306]
+              - columnheader "Rate" [ref=e307]
+              - columnheader "Effect on marginal rate" [ref=e308]
+          - rowgroup [ref=e196]:
+            - row "€0 – €11,965 8.324% −8.32% (buildup)" [ref=e309]:
+              - cell "€0 – €11,965" [ref=e310]
+              - cell "8.324%" [ref=e311]
+              - cell "−8.32% (buildup)" [ref=e312]
+            - row "€11,965 – €25,845 31.009% −31.01% (buildup)" [ref=e313]:
+              - cell "€11,965 – €25,845" [ref=e314]
+              - cell "31.009%" [ref=e315]
+              - cell "−31.01% (buildup)" [ref=e316]
+            - row "€25,845 – €45,592 1.950% −1.95% (buildup)" [ref=e317]:
+              - cell "€25,845 – €45,592" [ref=e318]
+              - cell "1.950%" [ref=e319]
+              - cell "−1.95% (buildup)" [ref=e320]
+            - row "€45,592 – €132,920 6.510% +6.51% (phaseout)" [ref=e321]:
+              - cell "€45,592 – €132,920" [ref=e322]
+              - cell "6.510%" [ref=e323]
+              - cell "+6.51% (phaseout)" [ref=e324]
+      - generic [ref=e213]:
+        - heading "Sources" [level=3] [ref=e325]
+        - list [ref=e215]:
+          - listitem [ref=e216]:
+            - link "Employment tax credit table 2026" [ref=e326] [cursor=pointer]:
+              - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2026
+          - listitem [ref=e218]:
+            - link "General tax credit table 2026" [ref=e327] [cursor=pointer]:
+              - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2026
+          - listitem [ref=e220]:
+            - link "Rates and tax credits 2026" [ref=e328] [cursor=pointer]:
+              - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/u-telefonisch-contact-opnemen
+      - generic [ref=e222]:
+        - heading "Caveats" [level=3] [ref=e329]
+        - paragraph [ref=e224]: "This calculation only shows the marginal burden from income tax (Box 1) with the employment tax credit and general tax credit. In practice, more factors affect the effective marginal burden:"
+        - list [ref=e225]:
+          - listitem [ref=e226]:
+            - strong [ref=e227]: Child benefit / child-related budget
+            - text: — the child-related budget is phased out based on income, which can raise the effective marginal burden for parents.
+          - listitem [ref=e228]:
+            - strong [ref=e229]: Mortgage interest deduction
+            - text: — mortgage interest is deductible at the base rate (35.75%). This lowers the total tax burden but not the marginal rate on extra income.
+          - listitem [ref=e230]:
+            - strong [ref=e231]: Healthcare / housing allowance
+            - text: — these allowances are phased out based on income, which can substantially raise the effective marginal burden at lower incomes.
+          - listitem [ref=e232]:
+            - strong [ref=e233]: Income-dependent healthcare contribution (Zvw)
+            - text: — employers pay this premium, but for director-shareholders and self-employed it can affect the marginal burden.
+          - listitem [ref=e234]:
+            - strong [ref=e235]: SME profit exemption
+            - text: — entrepreneurs receive a 12.7% profit exemption, which effectively lowers the marginal rate.
+      - generic [ref=e236]:
+        - heading "Frequently asked questions" [level=3] [ref=e330]
+        - group [ref=e238]:
+          - generic "Is my data stored or processed?" [ref=e331] [cursor=pointer]
+    - paragraph [ref=e240]:
+      - text: "Source:"
+      - link "Belastingdienst" [ref=e241] [cursor=pointer]:
+        - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/
+      - text: 2026 · Simplified calculation · No guarantee
+  - generic [ref=e242]: 0%

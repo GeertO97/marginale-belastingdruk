@@ -1,0 +1,211 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - heading "Marginale belastingdruk 2026" [level=1] [ref=e6]
+        - paragraph [ref=e7]: Nederland · Box 1 · onder AOW-leeftijd
+      - generic [ref=e8]:
+        - button "Lichte modus" [ref=e9]:
+          - img [ref=e10]
+        - button "🇳🇱 NL" [ref=e14]:
+          - generic [ref=e15]: 🇳🇱
+          - generic [ref=e16]: NL
+          - img [ref=e17]
+    - paragraph [ref=e20]:
+      - strong [ref=e21]: Weet jij hoeveel belasting je betaalt over je laatstverdiende euro?
+      - text: Dit is je marginale tarief en is waarschijnlijk hoger dan je denkt. Door afbouw van heffingskortingen kan je tarief tot oplopen tot wel 56%. Vul je inkomen in en zie het verschil.
+    - generic [ref=e22]:
+      - generic [ref=e23]: Bruto jaarinkomen
+      - generic [ref=e24]:
+        - generic [ref=e25]: €50.000
+        - slider [ref=e26]: "50000"
+      - textbox [ref=e27]: "50.000"
+      - button "Bereken vanuit maandsalaris ▸" [ref=e28]:
+        - text: Bereken vanuit maandsalaris
+        - generic [ref=e29]: ▸
+    - paragraph [ref=e31]: Vul je inkomen in om je marginale belastingdruk te berekenen
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: Marginaal tarief
+          - button "Meer informatie" [ref=e36]: i
+        - paragraph [ref=e37]: 50,47%
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - paragraph [ref=e40]: Schijf 2
+          - button "Meer informatie" [ref=e41]: i
+        - paragraph [ref=e42]: 37,56%
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Afbouw AHK
+          - button "Meer informatie" [ref=e46]: i
+        - paragraph [ref=e47]: 6,40%
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: Afbouw AK
+          - button "Meer informatie" [ref=e51]: i
+        - paragraph [ref=e52]: 6,51%
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - paragraph [ref=e55]: Opbouw AK
+          - button "Meer informatie" [ref=e56]: i
+        - paragraph [ref=e57]: "-0,00%"
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - paragraph [ref=e60]: Effect kortingen
+          - button "Meer informatie" [ref=e61]: i
+        - paragraph [ref=e62]: +12,91%
+    - generic [ref=e63]:
+      - heading "Marginale belastingdruk per inkomensniveau" [level=2] [ref=e64]
+      - img [ref=e67]:
+        - generic [ref=e71]:
+          - generic [ref=e73]: €3k
+          - generic [ref=e75]: €9k
+          - generic [ref=e77]: €15k
+          - generic [ref=e79]: €21k
+          - generic [ref=e81]: €28k
+          - generic [ref=e83]: €35k
+          - generic [ref=e85]: €41k
+          - generic [ref=e87]: €48k
+          - generic [ref=e89]: €55k
+          - generic [ref=e91]: €61k
+          - generic [ref=e93]: €68k
+          - generic [ref=e95]: €75k
+          - generic [ref=e97]: €82k
+          - generic [ref=e99]: €89k
+          - generic [ref=e101]: €96k
+          - generic [ref=e103]: €104k
+          - generic [ref=e105]: €111k
+          - generic [ref=e107]: €119k
+          - generic [ref=e109]: €126k
+          - generic [ref=e111]: €134k
+          - generic [ref=e113]: €142k
+          - generic [ref=e115]: €150k
+        - generic [ref=e117]:
+          - generic [ref=e119]: 0%
+          - generic [ref=e121]: 20%
+          - generic [ref=e123]: 40%
+          - generic [ref=e125]: 65%
+        - generic [ref=e127]: Toptarief 49,5%
+        - generic [ref=e129]: €50.000
+    - generic [ref=e136]:
+      - heading "Verantwoording & methodologie" [level=2] [ref=e137]
+      - generic [ref=e138]:
+        - heading "Hoe werkt het?" [level=3] [ref=e139]
+        - paragraph [ref=e140]:
+          - generic [ref=e141]:
+            - text: "De marginale belastingdruk is het percentage belasting dat je betaalt over je laatst verdiende euro. Dit is niet hetzelfde als je gemiddelde belastingdruk (effectief tarief). Wiskundig is het de afgeleide van de totale belastingfunctie naar het inkomen:"
+            - emphasis [ref=e142]: dT/dY
+          - text: .
+        - paragraph [ref=e143]: "Het effectieve marginale tarief bestaat uit het schijftarief, plus de afbouw van heffingskortingen (die het tarief verhogen), minus de opbouw van heffingskortingen (die het tarief verlagen):"
+        - paragraph [ref=e144]: Marginaal tarief = Schijftarief + Afbouw AHK + Afbouw AK − Opbouw AK
+      - generic [ref=e145]:
+        - heading "Schijftarieven 2026" [level=3] [ref=e146]
+        - table [ref=e147]:
+          - rowgroup [ref=e148]:
+            - row "Schijf Van Tot Tarief" [ref=e149]:
+              - columnheader "Schijf" [ref=e150]
+              - columnheader "Van" [ref=e151]
+              - columnheader "Tot" [ref=e152]
+              - columnheader "Tarief" [ref=e153]
+          - rowgroup [ref=e154]:
+            - row "1 €0 €38.883 35,75%" [ref=e155]:
+              - cell "1" [ref=e156]
+              - cell "€0" [ref=e157]
+              - cell "€38.883" [ref=e158]
+              - cell "35,75%" [ref=e159]
+            - row "2 €38.883 €78.426 37,56%" [ref=e160]:
+              - cell "2" [ref=e161]
+              - cell "€38.883" [ref=e162]
+              - cell "€78.426" [ref=e163]
+              - cell "37,56%" [ref=e164]
+            - row "3 €78.426 - 49,50%" [ref=e165]:
+              - cell "3" [ref=e166]
+              - cell "€78.426" [ref=e167]
+              - cell "-" [ref=e168]
+              - cell "49,50%" [ref=e169]
+      - generic [ref=e170]:
+        - heading "Algemene heffingskorting (AHK) 2026" [level=3] [ref=e171]
+        - paragraph [ref=e172]: Maximaal €3.115. Wordt afgebouwd met 6,398% van het inkomen boven €29.736, tot €0 bij €78.426.
+        - table [ref=e173]:
+          - rowgroup [ref=e174]:
+            - row "Inkomen Effect" [ref=e175]:
+              - columnheader "Inkomen" [ref=e176]
+              - columnheader "Effect" [ref=e177]
+          - rowgroup [ref=e178]:
+            - 'row "t/m €29.736 Volledig: €3.115" [ref=e179]':
+              - cell "t/m €29.736" [ref=e180]
+              - 'cell "Volledig: €3.115" [ref=e181]'
+            - 'row "€29.736 – €78.426 Afbouw: −6,398% per extra euro (verhoogt marginaal tarief)" [ref=e182]':
+              - cell "€29.736 – €78.426" [ref=e183]
+              - 'cell "Afbouw: −6,398% per extra euro (verhoogt marginaal tarief)" [ref=e184]'
+            - row "Boven €78.426 €0 (geen effect meer)" [ref=e185]:
+              - cell "Boven €78.426" [ref=e186]
+              - cell "€0 (geen effect meer)" [ref=e187]
+      - generic [ref=e188]:
+        - heading "Arbeidskorting (AK) 2026" [level=3] [ref=e189]
+        - paragraph [ref=e190]: Maximaal €5.685. Wordt eerst opgebouwd (verlaagt marginaal tarief), daarna afgebouwd (verhoogt marginaal tarief).
+        - table [ref=e191]:
+          - rowgroup [ref=e192]:
+            - row "Inkomen Tarief Effect op marginaal tarief" [ref=e193]:
+              - columnheader "Inkomen" [ref=e194]
+              - columnheader "Tarief" [ref=e195]
+              - columnheader "Effect op marginaal tarief" [ref=e196]
+          - rowgroup [ref=e197]:
+            - row "€0 – €11.965 8,324% −8,32% (opbouw)" [ref=e198]:
+              - cell "€0 – €11.965" [ref=e199]
+              - cell "8,324%" [ref=e200]
+              - cell "−8,32% (opbouw)" [ref=e201]
+            - row "€11.965 – €25.845 31,009% −31,01% (opbouw)" [ref=e202]:
+              - cell "€11.965 – €25.845" [ref=e203]
+              - cell "31,009%" [ref=e204]
+              - cell "−31,01% (opbouw)" [ref=e205]
+            - row "€25.845 – €45.592 1,950% −1,95% (opbouw)" [ref=e206]:
+              - cell "€25.845 – €45.592" [ref=e207]
+              - cell "1,950%" [ref=e208]
+              - cell "−1,95% (opbouw)" [ref=e209]
+            - row "€45.592 – €132.920 6,510% +6,51% (afbouw)" [ref=e210]:
+              - cell "€45.592 – €132.920" [ref=e211]
+              - cell "6,510%" [ref=e212]
+              - cell "+6,51% (afbouw)" [ref=e213]
+      - generic [ref=e214]:
+        - heading "Bronnen" [level=3] [ref=e215]
+        - list [ref=e216]:
+          - listitem [ref=e217]:
+            - link "Tabel arbeidskorting 2026" [ref=e218] [cursor=pointer]:
+              - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/tabel-arbeidskorting-2026
+          - listitem [ref=e219]:
+            - link "Tabel algemene heffingskorting 2026" [ref=e220] [cursor=pointer]:
+              - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/algemene_heffingskorting/tabel-algemene-heffingskorting-2026
+          - listitem [ref=e221]:
+            - link "Tarieven en heffingskortingen 2026" [ref=e222] [cursor=pointer]:
+              - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/u-telefonisch-contact-opnemen
+      - generic [ref=e223]:
+        - heading "Kanttekeningen" [level=3] [ref=e224]
+        - paragraph [ref=e225]: "Deze berekening toont alleen de marginale druk vanuit de inkomstenbelasting (Box 1) met arbeidskorting en algemene heffingskorting. In de praktijk zijn er meer factoren die de effectieve marginale druk beïnvloeden:"
+        - list [ref=e226]:
+          - listitem [ref=e227]:
+            - strong [ref=e228]: Kinderbijslag / kindgebonden budget
+            - text: — het kindgebonden budget wordt inkomensafhankelijk afgebouwd, wat de effectieve marginale druk voor ouders kan verhogen.
+          - listitem [ref=e229]:
+            - strong [ref=e230]: Hypotheekrenteaftrek (HRA)
+            - text: — hypotheekrente is aftrekbaar tegen het basistarief (35,75%). Dit verlaagt de totale belastingdruk maar niet het marginale tarief op extra inkomen.
+          - listitem [ref=e231]:
+            - strong [ref=e232]: Zorgtoeslag / huurtoeslag
+            - text: — deze toeslagen worden inkomensafhankelijk afgebouwd, wat de effectieve marginale druk bij lagere inkomens fors kan verhogen.
+          - listitem [ref=e233]:
+            - strong [ref=e234]: Inkomensafhankelijke bijdrage Zvw
+            - text: — werkgevers betalen deze premie, maar bij DGA’s en zelfstandigen kan dit de marginale druk beïnvloeden.
+          - listitem [ref=e235]:
+            - strong [ref=e236]: MKB-winstvrijstelling
+            - text: — voor ondernemers geldt een vrijstelling van 12,7% van de winst, waardoor het effectieve marginale tarief lager uitvalt.
+      - generic [ref=e237]:
+        - heading "Veelgestelde vragen" [level=3] [ref=e238]
+        - group [ref=e239]:
+          - generic "Worden mijn gegevens opgeslagen of verwerkt?" [ref=e240] [cursor=pointer]
+    - paragraph [ref=e241]:
+      - text: "Bron:"
+      - link "Belastingdienst" [ref=e242] [cursor=pointer]:
+        - /url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/
+      - text: 2026 · Vereenvoudigde berekening · Geen garantie
+  - generic [ref=e243]: 0%
