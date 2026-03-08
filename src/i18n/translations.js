@@ -8,7 +8,8 @@ export const translations = {
 
     // Header
     title: "Marginale belastingdruk 2026",
-    subtitle: "Nederland \u00b7 Box 1 \u00b7 onder AOW-leeftijd",
+    subtitle: "Nederland · Box 1 · onder AOW-leeftijd",
+    subtitleTooltip: "Boven de AOW-leeftijd gelden lagere tarieven omdat je geen AOW-premie meer betaalt. Ondersteuning hiervoor wordt in de toekomst toegevoegd.",
 
     // Intro
     introStrong: "Weet jij hoeveel belasting je betaalt over je laatstverdiende euro?",
@@ -176,7 +177,8 @@ export const translations = {
 
     // Header
     title: "Marginal Tax Rate 2026",
-    subtitle: "Netherlands \u00b7 Box 1 \u00b7 below state pension age",
+    subtitle: "Netherlands · Box 1 · below state pension age",
+    subtitleTooltip: "Above state pension age, lower rates apply as you no longer pay state pension contributions. Support for this will be added in a future update.",
 
     // Intro
     introStrong: "Do you know how much tax you pay on your last euro earned?",
